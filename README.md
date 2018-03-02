@@ -1,2 +1,2 @@
-# tweetbot
-JS-JEDI: my first Twitter Bot
+# TWITTER BOT
+JS-JEDI: my first Twitter Bot experiment.
