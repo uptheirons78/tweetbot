@@ -6,7 +6,7 @@ const bot = new Twit(config);
 //RETWEET BOT
 const retweet = function() {
     const params = {
-        q: '#100DaysOfCode, #100daysofcode', //required
+        q: '#100DaysOfCode, #100daysofcode, #100daysofCode', //required
         result_type: 'recent',
         lang: 'en'
     }
@@ -26,4 +26,4 @@ const retweet = function() {
 }
 
 retweet();
-setInterval(retweet, 600000);
+setInterval(retweet, 1000*60*5);
