@@ -4,13 +4,15 @@ const config = require('./config');
 const bot = new Twit(config);
 
 //RETWEET BOT
-const retweet = function() {
+const retweetFreeCodeCamp = function() {
     const params = {
-        q: '#100DaysOfCode, #100daysofcode', //required
+        q: '#freecodecamp', //required
         result_type: 'recent',
         lang: 'en'
     }
-    bot.get('search/tweets', params, function(err, data) {
+    bot.get('search/tweets', params, reTweetIt);
+    
+    function reTweetIt(err, data) {
         if (!err) {
             const retweetId = data.statuses[0].id_str;
             bot.post('statuses/retweet/:id', {
@@ -18,12 +20,13 @@ const retweet = function() {
             }, (err, response) => {
                 err ? console.log(err) : console.log('Retweet Done!!!');
             });
-        }
-        else {
+        } else {
             console.log('Something went wrong while SEARCHING...');
         }
-    });
+    }
+    
+        
 }
 
-retweet();
-setInterval(retweet, 1000*60*10);
+retweetFreeCodeCamp();
+setInterval(retweetFreeCodeCamp, 1000*60*10);
